@@ -1,0 +1,32 @@
+﻿<div class="row">
+    <br />
+    <p>
+        <button id="implicitButton">Download Excel file using OAuth Implicit Flow</button>
+    </p>
+</div>
+
+@section scripts {
+    <script>
+        $(function () {
+            var authorizationUrl = 'https://root/authz/ExcelFileExportWithOAuth2ImplicitFlow/oauth/authorize';
+            var client_id = 'exportuser';
+            var redirect_uri = 'https://ExcelFileExportWithOAuth2ImplicitFlow/home/download';
+            var response_type = "token";
+            var scope = "export";
+            var state = Date.now() + "" + Math.random();
+
+            $("#implicitButton").click(function () {
+                var url =
+                    authorizationUrl + "?" +
+                        "client_id=" + encodeURI(client_id) + "&" +
+                        "redirect_uri=" + encodeURI(redirect_uri) + "&" +
+                        "response_type=" + encodeURI(response_type) + "&" +
+                        "scope=" + encodeURI(scope) + "&" +
+                        "state=" + encodeURI(state);
+                sessionStorage["state"] = state;
+                window.location = url;
+            });
+        });
+
+    </script>
+}

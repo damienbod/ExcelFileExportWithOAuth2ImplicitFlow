@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>title</title>
+        <script src="~/Scripts/jquery-2.1.0.js"></script>
+        <script>
+            $(function () {          
+                var params = {},
+                    queryString = location.hash.substring(1),
+                    regex = /([^&=]+)=([^&]*)/g,
+                    m;
+                while (m = regex.exec(queryString)) {
+                    params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+                }
+
+                var token = params.access_token;
+                document.getElementById("token").value = token;
+
+             
+            });
+
+        </script>
+    </head>
+    <body>
+        <br/>
+        <div>
+            <form action="https://ExcelFileExportWithOAuth2ImplicitFlow/api/ExcelExport/complete/completeExportId" method="get">
+                <input type="hidden" name="token" id="token" value="noneset" />
+                <input type="submit" value="download file" />
+            </form>
+        </div>
+    </body>
+</html>
