@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Web;
+﻿using System.Security.Claims;
 
 namespace ExcelFileExportWithOAuth2ImplicitFlow.Security
 {
@@ -10,11 +6,8 @@ namespace ExcelFileExportWithOAuth2ImplicitFlow.Security
     {
         public override bool CheckAccess(AuthorizationContext context)
         {
-            // inspect sub, action, resource
-            //Debug.WriteLine(context.Principal.FindFirst("sub").Value);
-            //Debug.WriteLine(context.Action.First().Value);
-            //Debug.WriteLine(context.Resource.First().Value);
-
+            // This is where you can authorise the user if you
+            // have special roles etc, database checks or whatever
             return true;
         }
     }

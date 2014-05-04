@@ -8,7 +8,6 @@ using Thinktecture.IdentityModel;
 using Thinktecture.IdentityModel.Tokens;
 using Microsoft.Owin.Security.Jwt;
 
-
 [assembly: OwinStartup(typeof(ExcelFileExportWithOAuth2ImplicitFlow.Startup))]
 
 namespace ExcelFileExportWithOAuth2ImplicitFlow
